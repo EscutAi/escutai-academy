@@ -35,8 +35,8 @@ export default async function HomePage() {
         </p>
         <Link href="/login">
           <button className="rounded-md bg-green-600 px-6 py-3 text-white hover:bg-green-700 transition">
-            Acessar cursos
-          </button>
+    Acessar cursos
+  </button>
         </Link>
       </main>
 
