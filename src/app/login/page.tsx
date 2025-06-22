@@ -22,7 +22,7 @@ export default function Login({
     })
 
     if (error) {
-      return redirect('/login?message=Could not authenticate user')
+      return redirect('/login?message=Não foi possível fazer login. Verifique suas credenciais.')
     }
 
     return redirect('/')
@@ -46,10 +46,10 @@ export default function Login({
     })
 
     if (error) {
-      return redirect('/login?message=Could not authenticate user')
+      return redirect('/login?message=Erro ao criar conta. Tente novamente.')
     }
 
-    return redirect('/login?message=Check email to continue sign in process')
+    return redirect('/login?message=Verifique seu e-mail para confirmar o cadastro.')
   }
 
   return (
@@ -72,24 +72,26 @@ export default function Login({
         >
           <polyline points="15 18 9 12 15 6" />
         </svg>{' '}
-        Back
+        Voltar
       </Link>
 
       <form
         className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground animate-in"
         action={signIn}
       >
+        <h1 className="text-2xl font-bold mb-4 text-center">Entrar na EscutAI Academy</h1>
+
         <label className="text-md" htmlFor="email">
-          Email
+          E-mail
         </label>
         <input
           className="mb-6 rounded-md border bg-inherit px-4 py-2"
           name="email"
-          placeholder="you@example.com"
+          placeholder="voce@email.com"
           required
         />
         <label className="text-md" htmlFor="password">
-          Password
+          Senha
         </label>
         <input
           className="mb-6 rounded-md border bg-inherit px-4 py-2"
@@ -98,14 +100,14 @@ export default function Login({
           placeholder="••••••••"
           required
         />
-        <button className="mb-2 rounded-md bg-green-700 px-4 py-2 text-foreground">
-          Sign In
+        <button className="mb-2 rounded-md bg-green-700 px-4 py-2 text-white">
+          Entrar
         </button>
         <button
           formAction={signUp}
           className="mb-2 rounded-md border border-foreground/20 px-4 py-2 text-foreground"
         >
-          Sign Up
+          Criar nova conta
         </button>
         {searchParams?.message && (
           <p className="mt-4 bg-foreground/10 p-4 text-center text-foreground">
