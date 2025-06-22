@@ -24,6 +24,19 @@ export default function CursosPage() {
 
       setUser(user)
 
+      // ✅ Verifica se o usuário está autorizado
+      const { data: autorizacao, error: erroAutorizacao } = await supabase
+        .from('usuarios_autorizados')
+        .select('autorizado')
+        .eq('id', user.id)
+        .single()
+
+      if (erroAutorizacao || !autorizacao?.autorizado) {
+        router.push('/aguardando-aprovacao')
+        return
+      }
+
+      // ✅ Carrega os cursos
       const { data, error } = await supabase.from('cursos').select('*')
       if (!error) {
         setCursos(data || [])
@@ -33,7 +46,7 @@ export default function CursosPage() {
     }
 
     getUserAndCursos()
-  }, [])
+  }, [router, supabase])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
