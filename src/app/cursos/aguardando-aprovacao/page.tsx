@@ -7,7 +7,21 @@ export default function AguardandoAprovacao() {
         </h1>
         <p className="text-sm text-foreground mb-2">
           Seu cadastro foi concluído com sucesso! Agora estamos apenas verificando o pagamento.
+        </p>export default function AguardandoPage() {
+  return (
+    <div className="flex items-center justify-center min-h-screen px-6 text-center">
+      <div>
+        <h1 className="text-3xl font-bold mb-4">🚧 Aguardando Liberação</h1>
+        <p className="text-muted-foreground max-w-md mx-auto">
+          Seu pagamento está sendo processado. Assim que for confirmado, o acesso aos cursos será liberado.
         </p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Se você já pagou, aguarde alguns minutos ou entre em contato com o suporte.
+        </p>
+      </div>
+    </div>
+  )
+}
         <p className="text-sm text-foreground">
           Assim que confirmarmos, você terá acesso imediato aos cursos da EscutAI Academy.
         </p>
