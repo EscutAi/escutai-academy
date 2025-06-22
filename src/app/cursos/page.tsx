@@ -7,7 +7,7 @@ import { createBrowserClient } from '@/utils/supabase'
 export default function CursosPage() {
   const router = useRouter()
   const supabase = createBrowserClient()
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<any>(null)
   const [cursos, setCursos] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -33,7 +33,7 @@ export default function CursosPage() {
     }
 
     getUserAndCursos()
-  }, [router, supabase])
+  }, [])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
