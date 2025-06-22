@@ -55,7 +55,7 @@ export default function Login({
   return (
     <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
       <Link
-        href="/"
+        href="/cursos"
         className="bg-btn-background hover:bg-btn-background-hover group absolute left-8 top-8 flex items-center rounded-md px-4 py-2 text-sm text-foreground no-underline"
       >
         <svg
