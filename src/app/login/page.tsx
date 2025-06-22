@@ -25,7 +25,7 @@ export default function Login({
       return redirect('/login?message=Não foi possível fazer login. Verifique suas credenciais.')
     }
 
-    return redirect('/')
+    return redirect('/cursos')
   }
 
   const signUp = async (formData: FormData) => {
