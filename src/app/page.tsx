@@ -33,10 +33,10 @@ export default async function HomePage() {
         <p className="text-lg text-muted-foreground mb-6 max-w-xl">
           Aprenda música do zero com aulas práticas e simples. Acesse nossos cursos de ukulele, violão, teclado e muito mais!
         </p>
-        <Link href="/login">
+        <Link href="/cursos">
           <button className="rounded-md bg-green-600 px-6 py-3 text-white hover:bg-green-700 transition">
-    Acessar cursos
-  </button>
+            Acessar cursos
+          </button>
         </Link>
       </main>
 
