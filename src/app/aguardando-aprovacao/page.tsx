@@ -15,7 +15,7 @@ export default function AguardandoAprovacao() {
         <div className="mt-6 text-xs text-muted-foreground">
           Já efetuou o pagamento? Aguarde alguns minutos ou{' '}
           <a
-            href="https://wa.me/seunumerodowhatsapp" // 🔁 substitua com seu número
+            href="https://wa.me/81992853655"
             className="underline font-semibold hover:text-green-500 transition"
             target="_blank"
             rel="noopener noreferrer"
