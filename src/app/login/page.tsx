@@ -37,7 +37,7 @@ export default function Login({
     const cookieStore = cookies()
     const supabase = createServerClient(cookieStore)
 
-    const { error } = await supabase.auth.signUp({
+    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -45,8 +45,21 @@ export default function Login({
       },
     })
 
-    if (error) {
+    if (signUpError || !signUpData.user) {
       return redirect('/login?message=Erro ao criar conta. Tente novamente.')
+    }
+
+    // ✅ Insere o usuário na tabela de autorizados com "autorizado: false"
+    const { error: insertError } = await supabase.from('usuarios_autorizados').insert([
+      {
+        id: signUpData.user.id,
+        email: email,
+        autorizado: false,
+      },
+    ])
+
+    if (insertError) {
+      console.error('Erro ao inserir na tabela usuarios_autorizados:', insertError)
     }
 
     return redirect('/login?message=Verifique seu e-mail para confirmar o cadastro.')
