@@ -1,4 +1,38 @@
+'use client'
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { createBrowserClient } from '@/utils/supabase'
+
 export default function AguardandoAprovacao() {
+  const router = useRouter()
+  const supabase = createBrowserClient()
+
+  useEffect(() => {
+    const verificarAutorizacao = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+
+      if (!user) {
+        router.push('/login')
+        return
+      }
+
+      const { data: autorizacao } = await supabase
+        .from('usuarios_autorizados')
+        .select('autorizado')
+        .eq('id', user.id)
+        .single()
+
+      if (autorizacao?.autorizado) {
+        router.push('/cursos')
+      }
+    }
+
+    verificarAutorizacao()
+  }, [router])
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md border border-yellow-400 bg-yellow-100/10 rounded-xl p-6 shadow-md text-center">
