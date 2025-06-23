@@ -21,14 +21,12 @@ export default function CursosPage() {
         return
       }
 
-      // Verifica se o usuário já está na tabela usando o e-mail
       const { data: autorizacao, error } = await supabase
         .from('usuarios_autorizados')
         .select('autorizado')
         .eq('email', user.email)
         .single()
 
-      // Se não existir, cria o registro com autorizado = false
       if (error && error.code === 'PGRST116') {
         await supabase.from('usuarios_autorizados').insert({
           email: user.email,
@@ -38,13 +36,11 @@ export default function CursosPage() {
         return
       }
 
-      // Se já existir mas não estiver autorizado, redireciona
       if (!autorizacao?.autorizado) {
         router.push('/aguardando-aprovacao')
         return
       }
 
-      // Carrega os cursos
       const { data: cursosData } = await supabase.from('cursos').select('*')
       setCursos(cursosData || [])
       setLoading(false)
@@ -75,7 +71,43 @@ export default function CursosPage() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Vídeo de boas-vindas */}
+        <div className="mb-8">
+          <div className="aspect-video w-full rounded overflow-hidden">
+            <iframe
+              src="https://drive.google.com/file/d/SEU_ID_DO_VIDEO/preview"
+              width="100%"
+              height="360"
+              allow="autoplay"
+              className="rounded-md border border-foreground/10"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Botões de instrumentos */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <button
+            onClick={() => router.push('/violao')}
+            className="px-4 py-2 rounded border border-foreground/20 bg-background hover:bg-muted transition"
+          >
+            Violão
+          </button>
+          <button
+            onClick={() => router.push('/ukulele')}
+            className="px-4 py-2 rounded border border-foreground/20 bg-background hover:bg-muted transition"
+          >
+            Ukulele
+          </button>
+          <button
+            onClick={() => router.push('/teclado')}
+            className="px-4 py-2 rounded border border-foreground/20 bg-background hover:bg-muted transition"
+          >
+            Teclado
+          </button>
+        </div>
+
+        {/* Cursos cadastrados no Supabase */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {cursos.length === 0 ? (
             <p className="text-muted-foreground">Nenhum curso disponível.</p>
           ) : (
@@ -91,6 +123,22 @@ export default function CursosPage() {
               </div>
             ))
           )}
+        </div>
+
+        {/* Suporte e rodapé */}
+        <div className="text-center text-sm text-muted-foreground mt-12">
+          <p>
+            Precisa de ajuda?{' '}
+            <a
+              href="https://wa.me/5581992853655"
+              className="underline hover:text-green-500 transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fale com o suporte
+            </a>
+          </p>
+          <p className="mt-2">© 2025 EscutAI Academy. Todos os direitos reservados.</p>
         </div>
       </div>
     </div>
