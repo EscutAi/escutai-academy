@@ -70,12 +70,12 @@ export default function CursosPage() {
         </button>
       </header>
 
-      <div className="w-full mb-8 aspect-video">
+      <<div className="w-full mb-8 aspect-video">
         <iframe
-          src="https://drive.google.com/file/d/SEU_ID_DO_VIDEO/preview"
+          src="https://drive.google.com/file/d/1rbafXdPQRGr65akm4jvsOtit60HkxLPe/preview"
           allow="autoplay"
           className="w-full h-full rounded-md"
-        />
+          />
       </div>
 
       <div className="flex flex-col gap-4 w-full mb-12">
