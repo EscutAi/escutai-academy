@@ -7,22 +7,18 @@ import { createBrowserClient } from '@/utils/supabase'
 export default function CursosPage() {
   const router = useRouter()
   const supabase = createBrowserClient()
-  const [user, setUser] = useState<any>(null)
-  const [cursos, setCursos] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [erroMsg, setErroMsg] = useState<string | null>(null)
 
   useEffect(() => {
-    const getUserAndCursos = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
+    const exec = async () => {
+      const { data: authData, error: authError } = await supabase.auth.getUser()
+      console.log('AUTENTICAÇÃO:', authData, authError)
 
+      const user = authData?.user
       if (!user) {
-        router.push('/login')
-        return
+        router.push('/login'); return
       }
-
-      setUser(user)
 
       const { data: autorizacao, error: erroAutorizacao } = await supabase
         .from('usuarios_autorizados')
@@ -30,64 +26,49 @@ export default function CursosPage() {
         .eq('id', user.id)
         .single()
 
-      console.log('Autorizado:', autorizacao) // ✅ para debug
+      console.log('AUTORIZAÇÃO RAW:', autorizacao, erroAutorizacao)
 
-      if (erroAutorizacao || autorizacao?.autorizado !== true) {
+      // Mostre erro visualmente para facilitar testes
+      if (erroAutorizacao) {
+        setErroMsg('Erro no Supabase: ' + erroAutorizacao.message)
+        return
+      }
+
+      // Diagnóstico de tipo
+      const valor = autorizacao?.autorizado
+      console.log('Tipo de autorizado:', typeof valor, '=>', valor)
+
+      if (valor !== true) {
+        setErroMsg('Não está autorizado 😕 Valor: ' + String(valor))
         router.push('/aguardando-aprovacao')
         return
       }
 
+      // Se autorizado, carrega cursos
       const { data, error } = await supabase.from('cursos').select('*')
-      if (!error) {
-        setCursos(data || [])
-      }
-
+      console.log('CURSOS:', data, error)
       setLoading(false)
     }
 
-    getUserAndCursos()
-  }, [router])
+    exec()
+  }, [router, supabase])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
     router.push('/')
   }
 
+  if (erroMsg) {
+    return (
+      <div className="p-8 text-center">
+        <p className="text-red-500 font-bold">{erroMsg}</p>
+      </div>
+    )
+  }
+
   if (loading) {
     return <div className="p-8 text-center">Carregando...</div>
   }
 
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-8">
-      <div className="w-full max-w-4xl">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold">Meus Cursos</h1>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700 transition"
-          >
-            Sair
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cursos.length === 0 ? (
-            <p className="text-muted-foreground">Nenhum curso disponível.</p>
-          ) : (
-            cursos.map((curso) => (
-              <div
-                key={curso.id}
-                className="p-4 border rounded-md bg-background border-foreground/10"
-              >
-                <h2 className="text-lg font-semibold">{curso.title}</h2>
-                <p className="text-sm text-muted-foreground">
-                  {curso.description}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
-    </div>
-  )
+  // ... restante render normalmente ...
 }
