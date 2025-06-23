@@ -21,17 +21,16 @@ export default function CursosPage() {
         return
       }
 
-      // Verifica se o usuário já está na tabela
+      // Verifica se o usuário já está na tabela usando o e-mail
       const { data: autorizacao, error } = await supabase
         .from('usuarios_autorizados')
         .select('autorizado')
-        .eq('id', user.id)
+        .eq('email', user.email)
         .single()
 
       // Se não existir, cria o registro com autorizado = false
       if (error && error.code === 'PGRST116') {
         await supabase.from('usuarios_autorizados').insert({
-          id: user.id,
           email: user.email,
           autorizado: false,
         })
