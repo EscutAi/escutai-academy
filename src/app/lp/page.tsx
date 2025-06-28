@@ -1,133 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EscutAI Academy</title>
   <style>
-    :root {
-      --preto: #000000;
-      --dourado: #d4af37;
-      --branco: #ffffff;
-    }
-
     body {
       margin: 0;
-      font-family: sans-serif;
-      background-color: var(--preto);
-      color: var(--branco);
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
     }
 
     header {
-      background-color: var(--preto);
+      background-color: #111;
       padding: 2rem;
       text-align: center;
     }
 
     header h1 {
+      color: #ffd700;
       font-size: 2.5rem;
-      color: var(--dourado);
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
     header p {
-      font-size: 1.25rem;
       color: #ccc;
+      font-size: 1.2rem;
+      margin-top: 1rem;
     }
 
     section {
+      padding: 3rem 1rem;
       max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
+      margin: 0 auto;
     }
 
-    h2 {
-      color: var(--dourado);
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      padding-left: 1rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--dourado);
-      color: var(--preto);
-      padding: 1rem 2rem;
-      font-size: 1.25rem;
-      text-decoration: none;
-      border-radius: 6px;
+    .highlight {
+      color: #ffd700;
       font-weight: bold;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ffd700;
+      color: #000;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 2rem;
       transition: background-color 0.3s;
     }
 
-    .btn:hover {
-      background-color: #c49e2e;
+    .cta-button:hover {
+      background-color: #e5c100;
     }
 
     footer {
+      background-color: #111;
       text-align: center;
-      font-size: 0.875rem;
-      color: #aaa;
-      margin: 2rem auto;
+      padding: 2rem 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>EscutAI Academy</h1>
-    <p>Aprenda Violão, Teclado ou Ukulele de forma prática e acessível</p>
+    <p>Aprenda música do zero, de forma rápida e prática.</p>
   </header>
 
   <section>
-    <h2>O que é a EscutAI Academy?</h2>
+    <h2>🎸 Comece hoje mesmo</h2>
     <p>
-      Somos uma plataforma de ensino musical criada especialmente para iniciantes. Nosso foco é te colocar em contato com a prática desde o primeiro dia, sem enrolação e sem depender de talento natural.
+      A <span class="highlight">EscutAI Academy</span> foi feita para quem quer aprender a tocar um instrumento sem enrolação, mesmo que você nunca tenha pegado em um antes.
     </p>
-    <ul>
-      <li>Aulas curtas, didáticas e diretas ao ponto</li>
-      <li>Conteúdo novo liberado toda semana</li>
-      <li>Metodologia própria para acelerar resultados</li>
-      <li>Comunidade e suporte para te acompanhar</li>
-    </ul>
-  </section>
 
-  <section>
-    <h2>Investimento Inicial</h2>
-    <p>Comece agora com apenas <strong>R$ 50,00 por mês</strong>. Sem taxa de adesão. Sem contrato. Sem pegadinhas.</p>
-    <p>O valor pode aumentar com o tempo, mas quem entra agora garante esse preço fixo enquanto for assinante.</p>
-  </section>
+    <h2>💡 Como funciona?</h2>
+    <p>
+      Nosso curso custa apenas <span class="highlight">R$ 50,00 por mês</span> e você pode cancelar quando quiser. As aulas são online, com foco total na prática, e você acompanha no seu ritmo.
+    </p>
 
-  <section class="cta">
-    <a
-      class="btn"
-      href="https://wa.me/5581992853655?text=Oi%2C+quero+começar+na+EscutAI+Academy%21+Vi+a+promoção+no+site."
-      target="_blank"
-    >
-      Quero Começar Agora!
+    <h2>📚 Conteúdo sempre em expansão</h2>
+    <p>
+      A cada mês, novos módulos, músicas e dicas práticas são liberadas. O conteúdo evolui com você, do zero até os níveis mais avançados.
+    </p>
+
+    <h2>🤝 Suporte humano e real</h2>
+    <p>
+      Precisa de ajuda? Fale diretamente com a gente pelo WhatsApp. Nada de bots confusos.
+    </p>
+
+    <a class="cta-button" href="https://wa.me/5581992853655?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20EscutAI%20Academy%20e%20quero%20saber%20mais%20sobre%20os%20cursos!" target="_blank">
+      Falar no WhatsApp
     </a>
   </section>
 
-  <section>
-    <h2>Dúvidas?</h2>
-    <p>Chama a gente no WhatsApp e vamos te responder com carinho: <strong>(81) 99285-3655</strong></p>
-    <p>Ou envie um e-mail para: <strong>contato@escutaiacademy.com.br</strong></p>
-  </section>
+  <a class="floating-whatsapp" href="https://wa.me/5581992853655?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20EscutAI%20Academy%20e%20quero%20saber%20mais%20sobre%20os%20cursos!" target="_blank">
+    💬
+  </a>
 
   <footer>
-    <p>&copy; 2025 EscutAI Academy. Todos os direitos reservados.</p>
+    &copy; 2025 EscutAI Academy. Todos os direitos reservados.
   </footer>
 </body>
+
 </html>
