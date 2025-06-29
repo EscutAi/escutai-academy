@@ -55,35 +55,56 @@ export default function CursosPage() {
   }
 
   if (loading) {
-    return <div className="loading">Carregando...</div>
+    return <div className="p-8 text-center">Carregando...</div>
   }
 
   return (
-    <div className="cursos-page">
-      <header className="cursos-header">
-        <h1>Meus Cursos</h1>
-        <button onClick={handleLogout}>Sair</button>
+    <div className="min-h-screen flex flex-col px-[20%] py-8 w-full">
+      <header className="flex justify-between items-center mb-8">
+        <h1 className="text-2xl font-bold">Meus Cursos</h1>
+        <button
+          onClick={handleLogout}
+          className="text-sm text-muted-foreground hover:underline transition"
+        >
+          Sair
+        </button>
       </header>
 
-      <div className="video-container">
+      <div className="w-full mb-8 aspect-video">
         <iframe
           src="https://drive.google.com/file/d/1rbafXdPQRGr65akm4jvsOtit60HkxLPe/preview"
           allow="autoplay"
-          className="video-frame"
+          className="w-full h-full rounded-md"
         />
       </div>
 
-      <div className="curso-buttons">
-        <button onClick={() => router.push('/violao')}>Violão</button>
-        <button onClick={() => router.push('/ukulele')}>Ukulele</button>
-        <button onClick={() => router.push('/teclado')}>Teclado</button>
+      <div className="flex flex-col gap-4 w-full mb-12">
+        <button
+          onClick={() => router.push('/violao')}
+          className="w-full py-4 rounded-xl bg-zinc-100 hover:bg-zinc-200 transition text-lg font-medium text-zinc-800"
+        >
+          Violão
+        </button>
+        <button
+          onClick={() => router.push('/ukulele')}
+          className="w-full py-4 rounded-xl bg-zinc-100 hover:bg-zinc-200 transition text-lg font-medium text-zinc-800"
+        >
+          Ukulele
+        </button>
+        <button
+          onClick={() => router.push('/teclado')}
+          className="w-full py-4 rounded-xl bg-zinc-100 hover:bg-zinc-200 transition text-lg font-medium text-zinc-800"
+        >
+          Teclado
+        </button>
       </div>
 
-      <footer className="cursos-footer">
+      <footer className="mt-auto text-center text-sm text-muted-foreground space-y-2 pb-6">
         <p>
           Precisa de ajuda?{' '}
           <a
             href="https://wa.me/5581992853655"
+            className="underline hover:text-green-500 transition"
             target="_blank"
             rel="noopener noreferrer"
           >
