@@ -1,1 +1,20 @@
+/* src/styles/globals.css */
 
+:root {
+  --cor-primaria: #22c55e;
+  --cor-fundo: #f0fdf4;
+  --cor-texto: #1e293b;
+  --fonte-padrao: 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-padrao);
+}
