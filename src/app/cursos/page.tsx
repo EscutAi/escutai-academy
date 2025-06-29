@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createBrowserClient } from '@/utils/supabase'
-import '.cursos.css'
 
 export default function CursosPage() {
   const router = useRouter()
