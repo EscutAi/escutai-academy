@@ -2,117 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==========================
-   🎨 Customização Base
-========================== */
+/* Fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
 @layer base {
-  /* Cores principais através de variáveis CSS */
   :root {
-    --background: #000;
-    --foreground: #DCB91C;
-    --primary: #DCB91C;
-    --primary-foreground: #000;
-    --secondary: #8E7B29;
-    --secondary-foreground: #fff;
-    --radius: 0.5rem;
+    /* Cores em HSL convertidas para preto e dourado */
+    --background: 0 0% 100%; /* branco */
+    --foreground: 0 0% 0%;   /* preto */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 48 77% 49%; /* #DCB91C */
+    --primary-foreground: 0 0% 0%; /* preto */
+
+    --secondary: 46 17% 37%; /* #8E7B29 */
+    --secondary-foreground: 0 0% 100%; /* branco */
+
+    --muted: 46 17% 85%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 46 17% 85%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 80%;
+    --input: 0 0% 85%;
+    --ring: 48 77% 49%;
+
+    --radius: 0.3rem;
   }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 48 77% 49%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 46 17% 37%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 46 17% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 46 17% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 30%;
+    --input: 0 0% 25%;
+    --ring: 48 77% 49%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  h1, h2, h3, h4, h5, h6, p, button, a {
-    font-family: inherit;
-  }
-}
-
-/* ==========================
-   ✅ Customização de componentes
-========================== */
-@layer components {
-  /* Botões principais */
-  .btn-primary {
-    @apply bg-primary text-primary-foreground rounded-[var(--radius)]
-           py-2 px-4 font-semibold transition ease-in-out;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  .btn-primary:hover,
-  .btn-primary:focus {
-    @apply brightness-110;
-  }
-
-  /* Links com underline dourado */
-  .link-gold {
-    color: var(--foreground);
-    text-decoration: underline;
-    font-weight: 500;
-  }
-  .link-gold:hover {
-    @apply brightness-125;
-  }
-}
-
-/* ==========================
-   🧩 Estilos da Página /Cursos
-========================== */
-@layer utilities {
-  .cursos-page {
-    background: var(--background);
-    color: var(--foreground);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 10%;
-  }
-
-  .cursos-header {
-    @apply flex justify-between items-center mb-8;
-  }
-  .cursos-header h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-  }
-  .cursos-header button {
-    @apply bg-transparent border-none text-foreground font-medium cursor-pointer transition;
-  }
-  .cursos-header button:hover {
-    @apply opacity-80 underline;
-  }
-
-  .video-container {
-    width: 100%;
-    aspect-ratio: 16/9;
-    margin-bottom: 2rem;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  .video-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  .curso-buttons {
-    @apply flex flex-col gap-4 mb-12;
-  }
-  .curso-buttons button {
-    @apply w-full py-4 bg-secondary text-secondary-foreground rounded-[var(--radius)]
-           font-semibold text-lg transition ease-in-out box-shadow-md;
-  }
-  .curso-buttons button:hover {
-    @apply bg-secondary-foreground text-background;
-  }
-
-  .cursos-footer {
-    @apply mt-auto text-center text-sm opacity-90 pb-6;
-  }
-  .cursos-footer a {
-    @apply link-gold;
-  }
-
-  .loading {
-    @apply text-center py-16 text-base;
   }
 }
