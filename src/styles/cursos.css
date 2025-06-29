@@ -1,1 +1,96 @@
+.cursos-page {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom, #dcb91c, #8e7b29);
+  color: #000;
+  min-height: 100vh;
+  padding: 2rem 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cursos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cursos-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.cursos-header button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.cursos-header button:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.curso-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.curso-buttons button {
+  padding: 1rem;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.curso-buttons button:hover {
+  background: #f1e7c0;
+}
+
+.cursos-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #000;
+  margin-top: auto;
+  padding-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.cursos-footer a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.2rem;
+}
 
