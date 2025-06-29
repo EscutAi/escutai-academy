@@ -1,3 +1,4 @@
+import '../styles/globals.css'
 import { GeistSans } from 'geist/font/sans'
 import ThemeProvider from '@/providers/ThemeProvider'
 import NextTopLoader from 'nextjs-toploader'
